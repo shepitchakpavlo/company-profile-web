@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Image from './Image';
+import NewsSection from './NewsSection';
 import View from './View';
 
 const CompanyProfile = ({ profile, className }) => {
+  const { logo, name, description } = profile;
+
   return (
     <RootView className={className}>
-      <Logo src={profile.logo}/>
-      <Header>{profile.name}</Header>
-      <Body>{profile.description}</Body>
+      <Logo src={logo} />
+      <Header>{name}</Header>
+      <Body>{description}</Body>
+      <NewsSection />
     </RootView>
   );
 };
@@ -28,7 +32,7 @@ CompanyProfile.propTypes = {
 const RootView = styled(View)`
   flex: 1;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   max-width: 400px;
   border: 1px solid black;
   padding: 12px;
@@ -40,7 +44,9 @@ const Header = styled(View)`
   margin: 12px 0;
 `;
 
-const Body = styled(View)``;
+const Body = styled(View)`
+  margin-bottom: 12px;
+`;
 
 const Logo = styled(Image)`
   width: 100%;
