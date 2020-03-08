@@ -6,8 +6,8 @@ import View from './View';
 import companiesData from './companies';
 
 function App() {
-  //This should me memoized for the real world cases when we get data third party service,
-  // instead static json file.
+  //This should me memoized for the real world cases when we get data from
+  //the third party service instead of static json file.
   const companyList = React.useMemo(() => Object.values(companiesData), [
     companiesData,
   ]);
