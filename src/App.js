@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import CompanyProfile from './CompanyProfile';
-import TabBar from './TabBar';
-import View from './View';
+import { CompanyProfile, TabBar, View } from './components';
 import companiesData from './companies';
 
 function App() {
