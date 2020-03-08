@@ -15,8 +15,8 @@ const profileData = {
     'cloud computing, software, and hardware.',
 };
 
-const CompanyProfile = ({ profile = profileData }) => (
-  <RootView>
+const CompanyProfile = ({ profile = profileData, className }) => (
+  <RootView className={className}>
     <Logo src={profile.logo} />
     <Header>{profile.name}</Header>
     <Body>{profile.description}</Body>
@@ -31,6 +31,7 @@ CompanyProfile.propTypes = {
     logo: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
+  className: PropTypes.string,
 };
 
 const RootView = styled(View)`
