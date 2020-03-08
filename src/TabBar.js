@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import View from './View';
 
-
-
-const onClickMock = id => {
-  console.log(id);
-};
-
 const TabBar = ({ items, onSelect, selected }) => {
   const renderItem = ({ name, id }) => (
     <TabView isSelected={selected === id} onClick={() => onSelect(id)} key={id}>

@@ -3,24 +3,24 @@ import styled from 'styled-components';
 import CompanyProfile from './CompanyProfile';
 import TabBar from './TabBar';
 import View from './View';
-
-const itemsMock = [
-  { id: '0', name: 'Google' },
-  { id: '1', name: 'Amazon' },
-  { id: '2', name: 'Microsoft' },
-];
+import companiesData from './companies';
 
 function App() {
-  const [selectedCompany, setSelectedCompany] = useState(itemsMock[0].id);
+  //This should me memoized for the real world cases when we get data third party service,
+  // instead static json file.
+  const companyList = React.useMemo(() => Object.values(companiesData), [
+    companiesData,
+  ]);
+  const [selectedCompany, setSelectedCompany] = useState(companyList[0].id);
 
   return (
     <RootView>
       <TabBar
-        items={itemsMock}
+        items={companyList}
         onSelect={setSelectedCompany}
         selected={selectedCompany}
       />
-      <CompanyProfile />
+      <CompanyProfile profile={companyList[selectedCompany]} />
     </RootView>
   );
 }
