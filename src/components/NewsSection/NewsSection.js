@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import View from '../View';
 import Text from '../Text';
+import NewsItem from './NewsItem';
 import useNews from './useNews';
 
 const NewsSection = ({ companyName, className }) => {
@@ -13,24 +14,27 @@ const NewsSection = ({ companyName, className }) => {
     if (isLoading) {
       return <LoaderText>Loading...</LoaderText>;
     }
-    if (!news || news.length === 0){
-      return <NoNewsText>No news for this company</NoNewsText>
+    if (!news || news.length === 0) {
+      return <NoNewsText>No news for this company</NoNewsText>;
     }
 
-    return news.map(item => <div>new</div>);
+    return news.map(item => <NewsItemStyled item={item} key={item.url} />);
   };
 
-  return <RootView className={className}>
-    <HeaderText>News</HeaderText>
-    {renderContent()}
-  </RootView>;
+  return (
+    <RootView className={className}>
+      <HeaderText>News</HeaderText>
+      {renderContent()}
+    </RootView>
+  );
 };
 
 export default NewsSection;
 
 const RootView = styled(View)`
-flex-direction: column;
+  flex-direction: column;
   border: 1px solid #ccc;
+  padding: 12px;
 `;
 
 const ErrorText = styled(Text)`
@@ -48,4 +52,8 @@ const NoNewsText = styled(Text)`
 const HeaderText = styled(Text)`
   font-size: 16px;
   text-decoration: underline;
+`;
+
+const NewsItemStyled = styled(NewsItem)`
+  margin-top: 12px;
 `;

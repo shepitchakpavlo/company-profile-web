@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Image from './Image';
@@ -13,7 +13,7 @@ const CompanyProfile = ({ profile, className }) => {
       <Logo src={logo} />
       <Header>{name}</Header>
       <Body>{description}</Body>
-      <NewsSection />
+      <NewsSection companyName={name}/>
     </RootView>
   );
 };

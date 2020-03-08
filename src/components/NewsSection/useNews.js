@@ -7,6 +7,7 @@ const useNews = companyName => {
   const [isError, setIsError] = React.useState(false);
 
   const loadNews = async () => {
+    setNews(null);
     setIsLoading(true);
     try {
       const result = await getNews(companyName);
@@ -20,7 +21,7 @@ const useNews = companyName => {
 
   React.useEffect(() => {
     loadNews();
-  }, []);
+  }, [companyName]);
 
   return { news, isLoading, isError };
 };
