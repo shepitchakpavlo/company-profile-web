@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Image from './Image';
 import NewsSection from './NewsSection';
 import View from './View';
+import Text from './Text';
 
 const CompanyProfile = ({ profile, className }) => {
   const { logo, name, description } = profile;
