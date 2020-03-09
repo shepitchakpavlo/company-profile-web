@@ -35,7 +35,6 @@ const RootView = styled(View)`
   flex-direction: column;
   align-items: stretch;
   max-width: 400px;
-  border: 1px solid black;
   padding: 12px;
 `;
 
@@ -51,5 +50,6 @@ const BodyText = styled(Text)`
 
 const Logo = styled(Image)`
   width: 100%;
-  height: auto;
+  height: 100px;
+  object-fit: contain;
 `;
