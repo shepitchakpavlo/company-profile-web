@@ -36,6 +36,7 @@ NewsItem.propTypes = {
     urlToImage: ST,
     publishedAt: ST,
   }),
+  className: PropTypes.string,
 };
 
 const RootView = styled(View)`

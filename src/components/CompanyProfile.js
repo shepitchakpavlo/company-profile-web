@@ -11,8 +11,8 @@ const CompanyProfile = ({ profile, className }) => {
   return (
     <RootView className={className}>
       <Logo src={logo} />
-      <Header>{name}</Header>
-      <Body>{description}</Body>
+      <HeaderText>{name}</HeaderText>
+      <BodyText>{description}</BodyText>
       <NewsSection companyName={name}/>
     </RootView>
   );
@@ -38,13 +38,13 @@ const RootView = styled(View)`
   padding: 12px;
 `;
 
-const Header = styled(View)`
+const HeaderText = styled(Text)`
   font-weight: bold;
   font-size: 22px;
   margin: 12px 0;
 `;
 
-const Body = styled(View)`
+const BodyText = styled(Text)`
   margin-bottom: 12px;
 `;
 

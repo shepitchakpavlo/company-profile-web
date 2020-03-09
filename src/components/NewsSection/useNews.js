@@ -6,20 +6,20 @@ const useNews = companyName => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
 
-  const loadNews = async () => {
-    setNews(null);
-    setIsLoading(true);
-    try {
-      const result = await getNews(companyName);
-      setNews(result);
-      setIsLoading(false);
-    } catch (e) {
-      setIsError(true);
-    }
-    setIsLoading(false);
-  };
-
   React.useEffect(() => {
+    const loadNews = async () => {
+      setNews(null);
+      setIsLoading(true);
+      try {
+        const result = await getNews(companyName);
+        setNews(result);
+        setIsLoading(false);
+      } catch (e) {
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
+
     loadNews();
   }, [companyName]);
 

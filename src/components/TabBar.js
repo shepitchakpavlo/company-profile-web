@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Text from './Text';
 import View from './View';
 
 const TabBar = ({ items, onSelect, selected }) => {
   const renderItem = ({ name, id }) => (
-    <TabView isSelected={selected === id} onClick={() => onSelect(id)} key={id}>
+    <TabItem isSelected={selected === id} onClick={() => onSelect(id)} key={id}>
       {name}
-    </TabView>
+    </TabItem>
   );
 
   return <RootView>{items.map(renderItem)}</RootView>;
@@ -33,7 +34,7 @@ const RootView = styled(View)`
 
 const decideBackgroundColor = props => (props.isSelected ? '#ccc' : '#f1f1f1');
 
-const TabView = styled(View)`
+const TabItem = styled(Text)`
   flex: 1;
   align-items: center;
   justify-content: center;

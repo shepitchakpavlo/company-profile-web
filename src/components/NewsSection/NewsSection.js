@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import View from '../View';
@@ -30,6 +31,11 @@ const NewsSection = ({ companyName, className }) => {
 };
 
 export default NewsSection;
+
+NewsItem.propTypes = {
+  className: PropTypes.string,
+  companyName: PropTypes.string.isRequired,
+};
 
 const RootView = styled(View)`
   flex-direction: column;

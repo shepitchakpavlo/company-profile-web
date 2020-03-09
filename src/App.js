@@ -3,12 +3,9 @@ import styled from 'styled-components';
 import { CompanyProfile, TabBar, View } from './components';
 import companiesData from './companies';
 
+const companyList = Object.values(companiesData);
+
 function App() {
-  //This should me memoized for the real world cases when we get data from
-  //the third party service instead of static json file.
-  const companyList = React.useMemo(() => Object.values(companiesData), [
-    companiesData,
-  ]);
   const [selectedCompany, setSelectedCompany] = useState(companyList[0].id);
 
   return (
